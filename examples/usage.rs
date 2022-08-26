@@ -1,14 +1,3 @@
-# labrat.rs
- A simple grid-based A* implementation in Rust.<br>
- And just like a real labrat, it's not very fast and _not_ meant for pathfinding out catacombs if you know what I mean.
-
-# Usage
-```TOML
-# ./Cargo.toml
-labrat = { git = "https://github.com/eboatwright/labrat" }
-```
-```Rust
-// ./main.rs
 use labrat::*;
 
 fn main() {
@@ -32,8 +21,3 @@ fn main() {
 	pathfinder.find_path(); // creates a Vec<(f32, f32)> of all the coordinates from start to end
 	println!("{:?}", pathfinder.path);
 }
-```
-
-# License
- This project is under the MIT license.<br>
- Check the LICENSE file for more information.
