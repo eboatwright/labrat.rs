@@ -5,7 +5,7 @@
 # Usage
 ```TOML
 # ./Cargo.toml
-labrat = { git = "https://github.com/eboatwright/labrat" }
+labrat = { git = "https://github.com/eboatwright/labrat.rs" }
 ```
 ```Rust
 // ./main.rs
