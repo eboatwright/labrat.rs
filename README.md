@@ -1,6 +1,6 @@
 # labrat.rs
  A simple grid-based A* implementation in Rust.<br>
- And just like a real labrat, it's not very fast and _not_ meant for pathfinding out catacombs if ya know what I mean.
+ And just like a real labrat, it's not very fast and _not_ meant for pathfinding out catacombs if you know what I mean.
 
 # Usage
  ```Rust
