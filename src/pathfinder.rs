@@ -40,8 +40,12 @@ impl Pathfinder {
 				let neighbor_position = (x as f32, y as f32);
 				if neighbor_position == position
 				|| y >= self.world.len()
-				|| x >= self.world[0].len()
-				|| self.world[y][x] == 1 {
+				|| x >= self.world[0].len() {
+					continue;
+				}
+
+				if self.world[y][x] == 1
+				&& neighbor_position != self.end {
 					continue;
 				}
 
