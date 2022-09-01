@@ -10,10 +10,12 @@ pub struct Pathfinder {
 
 	pub path: Vec<(f32, f32)>,
 	pub found_path: bool,
+
+	pub steps: u32,
 }
 
 impl Pathfinder {
-	pub fn new(start: (f32, f32), end: (f32, f32), world: Vec<Vec<usize>>) -> Self {
+	pub fn new(start: (f32, f32), end: (f32, f32), world: Vec<Vec<usize>>, max_steps: u32) -> Self {
 		Self {
 			start,
 			end,
@@ -24,6 +26,8 @@ impl Pathfinder {
 
 			path: vec![],
 			found_path: false,
+
+			steps: max_steps,
 		}
 	}
 
@@ -85,7 +89,10 @@ impl Pathfinder {
 
 		open.push(0);
 
-		while open.len() > 0 {
+		while open.len() > 0
+		&& self.steps > 0 {
+			self.steps -= 1;
+
 			let mut current = usize::MAX;
 			for i in open.iter() {
 				if current == usize::MAX
