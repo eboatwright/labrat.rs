@@ -10,7 +10,7 @@ pub struct Pathfinder {
 	pub nodes: Vec<Node>,
 	pub path: Vec<(f32, f32)>,
 
-	pub steps: u32,
+	pub max_steps: u32,
 }
 
 impl Pathfinder {
@@ -23,7 +23,7 @@ impl Pathfinder {
 			nodes: vec![],
 			path: vec![],
 
-			steps: max_steps,
+			max_steps,
 		}
 	}
 
@@ -90,9 +90,10 @@ impl Pathfinder {
 
 		open.push(0);
 
+		let mut steps = self.max_steps;
 		while open.len() > 0
-		&& self.steps > 0 {
-			self.steps -= 1;
+		&& steps > 0 {
+			steps -= 1;
 
 			let mut current = usize::MAX;
 			for i in open.iter() {
