@@ -115,8 +115,8 @@ impl Pathfinder {
 
 			if self.nodes[current].position == self.end {
 				while self.nodes[current].position != self.start {
-					current = self.nodes[current].from;
 					self.path.push(self.nodes[current].position);
+					current = self.nodes[current].from;
 				}
 
 				// Remove the starting position
