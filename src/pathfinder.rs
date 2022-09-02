@@ -1,5 +1,6 @@
 use crate::*;
 
+#[derive(Clone, PartialEq)]
 pub struct Pathfinder {
 	pub start: (f32, f32),
 	pub end: (f32, f32),
