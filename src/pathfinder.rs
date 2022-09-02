@@ -119,9 +119,6 @@ impl Pathfinder {
 					current = self.nodes[current].from;
 				}
 
-				// Remove the starting position
-				self.path.pop();
-
 				return;
 			}
 
