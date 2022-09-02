@@ -31,6 +31,8 @@ fn main() {
 
 	pathfinder.find_path(); // creates a Vec<(f32, f32)> of all the coordinates from start to end
 	println!("{:?}", pathfinder.path);
+	// This get's the next position
+	println!("{:?}", pathfinder.path.pop().expect("Empty path"));
 }
 ```
 
