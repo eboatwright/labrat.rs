@@ -75,6 +75,30 @@ impl Pathfinder {
 			return;
 		}
 
+		// Check the immediate area around the end to see if it's enclosed
+		let mut enclosed = true;
+		(|| {
+			for y in self.end.1 as usize - 1..=self.end.1 as usize + 1 {
+				for x in self.end.0 as usize - 1..=self.end.0 as usize + 1 {
+					if (y == self.end.1 as usize
+					&& x == self.end.0 as usize)
+					|| y >= self.world.len()
+					|| x >= self.world[0].len() {
+						continue;
+					}
+
+					if self.world[y][x] == 0 {
+						enclosed = false;
+						return;
+					}
+				}
+			}
+		})();
+
+		if enclosed {
+			return;
+		}
+
 		let mut open: Vec<usize> = vec![];
 		let mut closed: Vec<usize> = vec![];
 
